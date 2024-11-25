@@ -1,7 +1,3 @@
-# Environment File
-*.env
-!.env.template
-
 # Local .terraform directories
 **/.terraform/*
 
@@ -69,3 +65,4 @@ experimental/**/*.db
 dev.db
 *.env*
 !.env.example
+!.env.template
