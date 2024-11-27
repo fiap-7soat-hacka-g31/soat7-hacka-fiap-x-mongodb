@@ -12,6 +12,10 @@ on:
 permissions:
   pull-requests: write
 
+env:
+  TF_VAR_atlas_public_key: ${{secrets.ATLAS_PUBLIC_KEY}}
+  TF_VAR_atlas_private_key: ${{secrets.ATLAS_PRIVATE_KEY}}
+  TF_VAR_atlas_org_id: ${{secrets.ATLAS_ORG_ID}}
 jobs:
   tf-summary:
     name: Terraform Summary
