@@ -68,7 +68,7 @@ resource "random_password" "db_pass_notifications" {
 
 resource "mongodbatlas_database_user" "db_user_notifications" {
   username           = "notifications-app"
-  password           = random_password.db_pass_api.result
+  password           = random_password.db_pass_notifications.result
   project_id         = mongodbatlas_project.fiap_x.id
   auth_database_name = "admin"
   roles {
