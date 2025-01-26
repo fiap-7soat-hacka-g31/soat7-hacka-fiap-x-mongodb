@@ -23,6 +23,16 @@ output "mongodb_password_api" {
   sensitive = true
 }
 
+output "mongodb_username_notifications" {
+  value     = mongodbatlas_database_user.db_user_notifications.username
+  sensitive = true
+}
+
+output "mongodb_password_notifications" {
+  value     = mongodbatlas_database_user.db_user_notifications.password
+  sensitive = true
+}
+
 output "mongodb_username_gm50x" {
   value     = mongodbatlas_database_user.db_user_gm50x.username
   sensitive = true
