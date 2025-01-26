@@ -21,12 +21,12 @@ variable "atlas_org_id" {
 variable "atlas_project_name" {
   type        = string
   description = "Atlas Project Name"
-  default     = "FiapBurger"
+  default     = "Fiapx"
 }
 
 # Atlas Project Name
 variable "atlas_cluster_name" {
   type        = string
   description = "Atlas Cluster Name"
-  default     = "FiapBurger"
+  default     = "Fiapx"
 }

@@ -4,13 +4,13 @@ provider "mongodbatlas" {
 }
 
 # Create Project
-resource "mongodbatlas_project" "fiap_burger" {
+resource "mongodbatlas_project" "fiap_x" {
   org_id = var.atlas_org_id
   name   = var.atlas_project_name
 }
 
-resource "mongodbatlas_cluster" "fiap_burger" {
-  project_id                  = mongodbatlas_project.fiap_burger.id
+resource "mongodbatlas_cluster" "fiap_x" {
+  project_id                  = mongodbatlas_project.fiap_x.id
   name                        = var.atlas_cluster_name
   cluster_type                = "REPLICASET"
   provider_instance_size_name = "M0"
@@ -21,42 +21,59 @@ resource "mongodbatlas_cluster" "fiap_burger" {
 }
 
 resource "mongodbatlas_project_ip_access_list" "allow_all_access" {
-  project_id = mongodbatlas_project.fiap_burger.id
+  project_id = mongodbatlas_project.fiap_x.id
   cidr_block = "0.0.0.0/0"
   comment    = "Allow All Access"
 }
 
-resource "random_password" "db_pass_payments" {
+resource "random_password" "db_pass_identity" {
   length           = 16
   special          = true
   override_special = "_%@"
 }
 
-resource "mongodbatlas_database_user" "db_user_payments" {
-  username           = "payments-app"
-  password           = random_password.db_pass_payments.result
-  project_id         = mongodbatlas_project.fiap_burger.id
+resource "mongodbatlas_database_user" "db_user_identity" {
+  username           = "identity-app"
+  password           = random_password.db_pass_identity.result
+  project_id         = mongodbatlas_project.fiap_x.id
   auth_database_name = "admin"
   roles {
     role_name     = "readWrite"
-    database_name = "Payments"
+    database_name = "Identity"
   }
 }
 
-resource "random_password" "db_pass_orders" {
+resource "random_password" "db_pass_api" {
   length           = 16
   special          = true
   override_special = "_%@"
 }
 
-resource "mongodbatlas_database_user" "db_user_orders" {
-  username           = "orders-app"
-  password           = random_password.db_pass_orders.result
-  project_id         = mongodbatlas_project.fiap_burger.id
+resource "mongodbatlas_database_user" "db_user_api" {
+  username           = "api-app"
+  password           = random_password.db_pass_api.result
+  project_id         = mongodbatlas_project.fiap_x.id
   auth_database_name = "admin"
   roles {
     role_name     = "readWrite"
-    database_name = "Orders"
+    database_name = "Api"
+  }
+}
+
+resource "random_password" "db_pass_notifications" {
+  length           = 16
+  special          = true
+  override_special = "_%@"
+}
+
+resource "mongodbatlas_database_user" "db_user_notifications" {
+  username           = "notifications-app"
+  password           = random_password.db_pass_api.result
+  project_id         = mongodbatlas_project.fiap_x.id
+  auth_database_name = "admin"
+  roles {
+    role_name     = "readWrite"
+    database_name = "Notifications"
   }
 }
 
@@ -69,7 +86,7 @@ resource "random_password" "db_pass_gm50x" {
 resource "mongodbatlas_database_user" "db_user_gm50x" {
   username           = "gm50x-admin"
   password           = random_password.db_pass_gm50x.result
-  project_id         = mongodbatlas_project.fiap_burger.id
+  project_id         = mongodbatlas_project.fiap_x.id
   auth_database_name = "admin"
 
   roles {
