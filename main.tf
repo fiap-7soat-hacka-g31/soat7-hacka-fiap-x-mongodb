@@ -29,7 +29,7 @@ resource "mongodbatlas_project_ip_access_list" "allow_all_access" {
 resource "random_password" "db_pass_identity" {
   length           = 16
   special          = true
-  override_special = "_%@"
+  override_special = "_$#!"
 }
 
 resource "mongodbatlas_database_user" "db_user_identity" {
@@ -46,7 +46,7 @@ resource "mongodbatlas_database_user" "db_user_identity" {
 resource "random_password" "db_pass_api" {
   length           = 16
   special          = true
-  override_special = "_%@"
+  override_special = "_$#!"
 }
 
 resource "mongodbatlas_database_user" "db_user_api" {
@@ -63,7 +63,7 @@ resource "mongodbatlas_database_user" "db_user_api" {
 resource "random_password" "db_pass_notifications" {
   length           = 16
   special          = true
-  override_special = "_%@"
+  override_special = "_$#!"
 }
 
 resource "mongodbatlas_database_user" "db_user_notifications" {
@@ -80,7 +80,7 @@ resource "mongodbatlas_database_user" "db_user_notifications" {
 resource "random_password" "db_pass_gm50x" {
   length           = 16
   special          = true
-  override_special = "_%@"
+  override_special = "_$#!"
 }
 
 resource "mongodbatlas_database_user" "db_user_gm50x" {
