@@ -3,42 +3,42 @@ output "mongodb_connection_string" {
   sensitive = true
 }
 
-output "mongodb_username_identity" {
+output "mongodb_identity_username" {
   value     = mongodbatlas_database_user.db_user_identity.username
   sensitive = true
 }
 
-output "mongodb_password_identity" {
+output "mongodb_identity_password" {
   value     = mongodbatlas_database_user.db_user_identity.password
   sensitive = true
 }
 
-output "mongodb_username_api" {
+output "mongodb_api_username" {
   value     = mongodbatlas_database_user.db_user_api.username
   sensitive = true
 }
 
-output "mongodb_password_api" {
+output "mongodb_api_password" {
   value     = mongodbatlas_database_user.db_user_api.password
   sensitive = true
 }
 
-output "mongodb_username_notifications" {
+output "mongodb_notifications_username" {
   value     = mongodbatlas_database_user.db_user_notifications.username
   sensitive = true
 }
 
-output "mongodb_password_notifications" {
+output "mongodb_notifications_password" {
   value     = mongodbatlas_database_user.db_user_notifications.password
   sensitive = true
 }
 
-output "mongodb_username_gm50x" {
+output "mongodb_gm50x_username" {
   value     = mongodbatlas_database_user.db_user_gm50x.username
   sensitive = true
 }
 
-output "mongodb_password_gm50x" {
+output "mongodb_gm50x_password" {
   value     = mongodbatlas_database_user.db_user_gm50x.password
   sensitive = true
 }

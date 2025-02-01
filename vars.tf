@@ -28,5 +28,5 @@ variable "atlas_project_name" {
 variable "atlas_cluster_name" {
   type        = string
   description = "Atlas Cluster Name"
-  default     = "Fiapx"
+  default     = "Fiap_X"
 }
